@@ -7,18 +7,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.homework_6app.adapter.CategoryAdapter;
+import com.example.homework_6app.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        // Инициализация RecyclerView
+        recyclerView = findViewById(R.id.categoryRecyclerView);
+
+        // Настройка LinearLayoutManager с горизонтальной ориентацией
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category(R.drawable.ic_burger, "Burgers"));
+        categories.add(new Category(R.drawable.ic_pizza, "Pizza"));
+        categories.add(new Category(R.drawable.ic_kitchen, "Chicken"));
+
+        CategoryAdapter adapter = new CategoryAdapter(categories);
+        binding.categoryRecyclerView.setAdapter(adapter);
     }
 }
