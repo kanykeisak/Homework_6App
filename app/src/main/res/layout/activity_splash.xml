@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/gradient_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/pizza"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="-70dp"
+        android:src="@drawable/pizza_image"
+        app:layout_constraintBottom_toTopOf="@+id/tvPizza"
+        app:layout_constraintEnd_toEndOf="@+id/tvPizza"/>
+
+    <TextView
+        android:id="@+id/tvPizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="eatmore"
+        android:textSize="50sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/sofia_font"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="248dp"/>
+    <TextView
+        android:id="@+id/tvPizzaOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P      i      z      z      a"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvPizza"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-20dp"/>
+    
+    <ImageView
+        android:layout_width="373dp"
+        android:layout_height="373dp"
+        android:src="@drawable/salate_image"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circular_image"
+        android:clipToOutline="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
